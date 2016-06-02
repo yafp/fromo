@@ -9,8 +9,8 @@
 
 It contains:
 
-- fromol - logger which periodically for the currently frontmost window and logs its command title and PID.
-- fromoa - analyzer which can generate a report out of the log file
+- fromol.py - logger which periodically checks for the currently frontmost window and logs its command, windowtitle and PID.
+- fromoa.py - analyzer which can generate a report out of the log file
 
 
 # Requirements
@@ -26,11 +26,9 @@ Install clint via
 
 
 # Installation
-TODO: makefile
+instructions are missing so far
 
 
 # Setup and configure the logger
 - Open fromol.py and configure the values in the CONFIG block
-- Start the main script (fromo.py) manually or via cronjob
-Optional:
-- Configure logrotation via logrotate
+- Start the main script (fromol.py) manually or via cronjob
