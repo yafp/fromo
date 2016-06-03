@@ -1,9 +1,9 @@
 #!/usr/bin/env python2
 # coding=utf-8
-# Name:			fromol.py
+# Name:			fromoL.py
 # Function:		logger - logs the frontmost window on Linux systems
 # URL:          https://github.com/yafp/fromo
-# Date:			20160602
+# Date:			20160603
 # Author: 		https://github.com/yafp/
 #               http://yafp.de
 #
@@ -16,6 +16,20 @@
 #       http://stackoverflow.com/questions/3788208/python-threading-ignores-keyboardinterrupt-exception#3788243
 #       http://stackoverflow.com/questions/21120947/catching-keyboardinterrupt-in-python-during-program-shutdown
 
+
+####################################
+# CONSTANT
+####################################
+version = 20160603.01
+
+
+####################################
+# CONFIG
+####################################
+# interval to check for current frontmost window
+checkInterval = 5.0             # in seconds. Example: 10.0
+# write log file or not
+enableLogFileCreation = "false" # true or false. Only true results in a logfile
 
 
 ####################################
@@ -36,24 +50,12 @@ from clint.textui import colored, puts  # for colored text
 #import signal # thread & escaping it
 
 
-# to avaid issues with ASCII vs UTF 8 - i.e. with writing frontmostWindowTitle of Atom Editor into logfile
+####################################
+# INIT
+####################################
+# to avoid issues with ASCII vs UTF 8 - i.e. with writing frontmostWindowTitle of Atom Editor into logfile
 reload(sys)
 sys.setdefaultencoding("utf-8")
-
-
-####################################
-# CONSTANT
-####################################
-version = 20160602.01
-
-
-####################################
-# CONFIG
-####################################
-# interval to check for current frontmost window
-checkInterval = 5.0             # in seconds. Example: 10.0
-# write log file or not
-enableLogFileCreation = "false" # true or false. Only true results in a logfile
 
 
 ####################################
@@ -63,12 +65,10 @@ def checkRequirementsOnStartup():
 
     if sys.platform == "linux" or sys.platform == "linux2": # check if platform is supported or not
         os.system('clear')  # # clear the screen
-        print " __"
-        print "/ _|"
-        print "| |_ _ __ ___  _ __ ___   ___"
-        print "|  _| '__/ _ \| '_ ` _ \ / _ \\"
-        print "| | | | | (_) | | | | | | (_) |"
-        print "|_| |_|  \___/|_| |_| |_|\___/      Version:"+str(version)+"\n"
+        print " ___                   __"
+        print "|  _|___ ___ _____ ___|  |"
+        print "|  _|  _| . |     | . |  |__"
+        print "|_| |_| |___|_|_|_|___|_____|    Version:"+str(version)+"\n"
 
         puts(colored.yellow('Checking requirements ...'))
         # test xprop (if status=0 =>ok && 512=not found )
@@ -150,10 +150,10 @@ def fromoLogger():
 
     # write to log-file
     if enableLogFileCreation == "true":
-        with open("fromol.log", "a") as fromolLogFile:
+        with open("fromoL.log", "a") as fromolLogFile:
         #with open("/var/log/fromo/fromol.log", "a") as myfile:
             #myfile.write(dateString+'\t'+frontmostCommand+'\t'+frontmostWindowTitle+'\n')
-            fromolLogFile.write(dateString+'\n'+frontmostCommand+'\n'+frontmostWindowTitle+'\n'+frontmostWindowPID+'\n###\n')
+            fromolLogFile.write('D:'+dateString+'\nC:'+frontmostCommand+'\nT:'+frontmostWindowTitle+'\nP:'+frontmostWindowPID+'\n###\n')
 
     #signal.pause() # instead of: while True: time.sleep(100)
     #except (KeyboardInterrupt):
