@@ -69,8 +69,6 @@ if sys.platform == "linux" or sys.platform == "linux2": # check if platform is s
         else:
             print "+++++ Unexpected log content - Please report at https://github.com/yafp/fromo/issues ++++++"
 
-        #print line
-
     fromolLogFile.close() # close the log file
     print "Finished reading log (arrays are filled)"
 
@@ -104,11 +102,12 @@ if sys.platform == "linux" or sys.platform == "linux2": # check if platform is s
         f.write('<table id="example" class="display" cellspacing="0" width="100%">\n')
         f.write('<thead><tr><th>Timestamp</th><th>Command</th><th>Title</th><th>PID</th></tr></thead>\n')
         f.write('<tbody>\n')
-        # loop over the arrays
+        # prepare array iteration
         aD = iter(arrDates)
         aC = iter(arrCommands)
         aT = iter(arrTitles)
         aP = iter(arrPIDs)
+        # loop over the arrays
         for x in range(0, len(arrDates)):
             f.write('<tr><td>'+aD.next()+'</td><td>'+aC.next()+'</td><td>'+aT.next()+'</td><td>'+aP.next()+'</td></tr>\n')
         f.write('</tbody>\n')
