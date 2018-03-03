@@ -9,33 +9,49 @@
 
 It contains:
 
-- **fromoL.py** - logger which logs the frontmost, its command, windowtitle and PID.
-- **fromoA.py** - analyzer which can generate a report out of the log file
+- **fromo_logger.py** - logger which logs the frontmost command, windowtitle and PID.
+- **fromo_analyzer.py** - analyzer which can generate a report out of the logger log file
 
-## fromoL
-![UI](https://raw.githubusercontent.com/yafp/fromo/master/img/Example_fromoL.png)
+## fromo_logger
+![UI](https://raw.githubusercontent.com/yafp/fromo/master/img/Example_fromo_logger.png)
 
-## fromoA
-![UI](https://raw.githubusercontent.com/yafp/fromo/master/img/Example_fromoA.png)
+## fromo_analyzer
+![UI](https://raw.githubusercontent.com/yafp/fromo/master/img/Example_fromo_analyzer.png)
 
 
 # Requirements
 The following packages are needed
-- wmctrl
-- xprop
+- xdotool
 - python (2.x)
 - clint (python module - via: 'sudo pip install clint')
 
 
-# Setup
-## Logger (fromoL.py)
-- Open fromoL.py and configure the values in the CONFIG block
-- Start the logger script (fromoL.py) manually or via cronjob
+# Usage
+## fromo_logger
+- Mark as executable
+```
+chmod +x fromo_logger.py
+```
 
-## Analyzer (fromoA.py)
-- Start the analyzer script (fromoA.py) manually or via cronjob
-- Have fun with the generated .html reports
+- Start the logger script
+```
+./fromo_logger.py
+```
 
+The ```-h``` parameter shows optional parameters.
+
+
+
+## fromo_analyzer
+- Mark as executable
+```
+chmod +x fromo_analyzer.py
+```
+
+- Start the analyzer script
+```
+./fromo_analyzer.py
+```
 
 # Resources
-ASCII-Art was created using http://www.patorjk.com/software/taag with the Font Rectangle
+* ASCII-Art was created using http://www.patorjk.com/software/taag with the Font Rectangle
